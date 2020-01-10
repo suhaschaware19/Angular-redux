@@ -1,0 +1,27 @@
+
+<!-- <div class="panel panel-primary"> -->
+        <div class="panel-heading"><h4 align="center">
+                {{ 'usermanagement.userlist' | translate }}</h4>
+            </div>
+            <div>
+                    <button (click)="addUser()" class="btn btn-primary">{{ 'usermanagement.profile.add' | translate }}</button>
+            </div>
+
+<table class="table table-hover">
+<thead>
+<tr>
+        <td><b>{{ 'usermanagement.profile.id' | translate }}</b></td>
+    <td><b>{{ 'usermanagement.profile.name' | translate }}</b></td>
+    <td><b>{{ 'usermanagement.profile.address' | translate }}</b></td>
+    <td><b>{{ 'usermanagement.profile.country' | translate }}</b></td>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let user of users | async">
+            <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.country }}</td>
+    </tr>
+</tbody>
+<!-- </div> -->

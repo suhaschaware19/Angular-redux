@@ -1,0 +1,49 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4 align="center">
+        {{ 'usermanagement.profile.title' | translate }}</h4>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="userForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">{{ 'usermanagement.profile.id' | translate }}</label>
+          <input type="text" class="form-control" formControlName="id" #id />
+        </div>
+        <div *ngIf="userForm.controls['id'].invalid && (userForm.controls['id'].dirty || userForm.controls['id'].touched)" class="alert alert-danger">
+          <div *ngIf="userForm.controls['id'].errors.required">
+              {{ 'usermanagement.profile.id.validation' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">{{ 'usermanagement.profile.name' | translate }}</label>
+            <input type="text" class="form-control" formControlName="name" #name />
+          </div>
+          <div *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="userForm.controls['name'].errors.required">
+                {{ 'usermanagement.profile.name.validation' | translate }}
+            </div>
+          </div>
+        <div class="form-group">
+          <label class="col-md-4">{{ 'usermanagement.profile.address' | translate }}</label>
+          <input type="text" class="form-control" formControlName="address" #address/>
+        </div>
+        <div *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].dirty || userForm.controls['address'].touched)" class="alert alert-danger">
+          <div *ngIf="userForm.controls['address'].errors.required">
+              {{ 'usermanagement.profile.address.validation' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">{{ 'usermanagement.profile.country' | translate }}</label>
+            <input type="text" class="form-control" formControlName="country" #country/>
+          </div>
+          <div *ngIf="userForm.controls['country'].invalid && (userForm.controls['country'].dirty || userForm.controls['country'].touched)" class="alert alert-danger">
+            <div *ngIf="userForm.controls['country'].errors.required">
+                {{ 'usermanagement.profile.country.validation' | translate }}
+            </div>
+          </div>
+          <div class="form-group">
+            <button (click)="saveUser(id.value,name.value, address.value,country.value)" [disabled]="userForm.pristine || userForm.invalid" class="btn btn-primary btn btn-space">{{ 'usermanagement.profile.save' | translate }}</button>
+            <button (click)="close()" class="btn btn-primary btn btn-space">{{ 'usermanagement.profile.close' | translate }}</button>
+          </div>
+      </form>
+    </div>
+  </div>
